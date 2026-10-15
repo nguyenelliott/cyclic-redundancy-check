@@ -1,6 +1,6 @@
 {
   "name": "cyclic-redundancy-check",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Computes CRC-32 checksums over byte buffers for data integrity verification.",
   "type": "module",
   "main": "src/index.js",
