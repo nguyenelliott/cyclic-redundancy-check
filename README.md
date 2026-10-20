@@ -32,3 +32,10 @@ The 256-entry lookup table is built once on first use, so the first call pays a 
 - `crc32(data: Uint8Array): number` — one-shot checksum.
 - `Crc32` — incremental accumulator; methods `update(data: Uint8Array): this`, `value(): number`, and read-only property `length: number`.
 - `utf8Bytes(str: string): Uint8Array` — helper that encodes a string as UTF-8 bytes.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
